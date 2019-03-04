@@ -1,0 +1,30 @@
+.EQU F_CPU = 16000000
+ .ORG 0  //set alamat awal (original)   
+
+ LDI R16, LOW(RAMEND) //lokasi akhir RAM untuk stack(SP)
+ OUT SPL, R16 //LSB    
+ LDI R16, HIGH(RAMEND)
+ OUT SPH, R16 //MSB 
+
+;MAIN LABEL
+MAIN:  
+LDI R16, 0xFF  // Load the immedate value 0xFF (all bits 1) into register 16
+OUT DDRB, R16 ;PORTB IS OUTPUT // Set Data Direction Register B to output for all pins
+
+BACK:  
+COM R16 ;COMPLEMENT THE VALUE IN R16  
+OUT PORTB, R16 ;PUSH THE VALUE IN R16 TO PORTB  
+CALL DELAY  
+RJMP BACK ;KEEP DOING THIS INFINITELY
+
+DELAY:  
+    ldi  r18, 2
+    ldi  r19, 98
+    ldi  r20, 60
+L1: dec  r20
+    brne L1
+    dec  r19
+    brne L1
+    dec  r18
+    brne L1
+    rjmp PC+1
