@@ -11,6 +11,6 @@ main (void)
 	while(1)
 	{
 		PORTB ^= _BV(PB5);
-		_delay_ms(17);
+		_delay_ms(37); // delay 37ms ganti dengan NIM anda 
 	}
 }
