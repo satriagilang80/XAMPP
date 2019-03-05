@@ -28,3 +28,4 @@ L1: dec  r20
     dec  r18
     brne L1
     rjmp PC+1
+    RET ;RETURN TO PREVIOUS PC ADDRES jangan lupa dikasih diterakhir
