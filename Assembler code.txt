@@ -27,5 +27,6 @@ L1: dec  r20
     brne L1
     dec  r18
     brne L1
-    rjmp PC+1
-    RET ;RETURN TO PREVIOUS PC ADDRES jangan lupa dikasih diterakhir
+    rjmp PC+1 ;copas dari AVR delay calculator
+
+    RET ;RETURN TO PREVIOUS PC ADDRES jangan lupa dikasih diterakhir setelah copas program dari AVR delay calculator
